@@ -7,6 +7,7 @@ use App\Models\Aduan;
 use App\Models\Survei;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class PetugasController extends Controller
 {
@@ -22,19 +23,41 @@ class PetugasController extends Controller
     }
 
 
+    // Menampilkan daftar petugas
     public function index()
     {
-        // Ambil data petugas dengan role 'petugas'
         $petugas = User::where('role', 'petugas')->get();
-
         return view('admin.petugas.index', compact('petugas'));
     }
+
+    // Menyimpan petugas baru
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:6'
+        ]);
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'role' => 'petugas' // Default role petugas
+        ]);
+
+        return redirect()->route('petugas')->with('success', 'Petugas berhasil ditambahkan.');
+    }
+
+    // Menghapus petugas
+
+    // Menghapus petugas
     public function destroy($id)
     {
         $petugas = User::findOrFail($id);
         $petugas->delete();
 
-        return redirect()->route('admin.petugas.index')->with('success', 'Petugas berhasil dihapus');
+        return redirect()->route('admin.petugas.index')->with('success', 'Petugas berhasil dihapus.');
     }
 
 

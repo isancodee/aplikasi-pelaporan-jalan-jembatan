@@ -1,8 +1,8 @@
 @extends('layouts.operator.admin')
 
 @section('content')
-    <div class="container mt-4">
-        <h2 class="text-center mb-4">Daftar Aduan untuk Ditugaskan</h2>
+    <div class="container mt-4 card">
+        <h2 class="text-center mb-4 mt-4">Daftar Aduan untuk Ditugaskan</h2>
 
         <table class="table table-bordered">
             <thead class="table-dark">

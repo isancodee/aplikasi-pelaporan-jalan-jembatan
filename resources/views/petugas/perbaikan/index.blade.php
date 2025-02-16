@@ -13,7 +13,7 @@
             <div class="card-body">
                 <table class="table table-bordered">
                     <thead>
-                        <tr>
+                        <tr class="text-center">
                             <th>No</th>
                             <th>Tindakan</th>
                             <th>Foto Perbaikan</th>
@@ -33,9 +33,9 @@
                                 </td>
                                 <td>Rp {{ number_format($perbaikan->dana_digunakan, 0, ',', '.') }}</td>
                                 <td>{{ $perbaikan->created_at->format('d M Y') }}</td>
-                                <td>
+                                <td class="text-center">
                                     <a href="{{ route('petugas.perbaikan.show', $perbaikan->id) }}"
-                                        class="btn btn-info">Lihat Detail</a>
+                                        class="btn btn-sm btn-info">Lihat Detail</a>
                                     <a href="{{ route('petugas.perbaikan.edit', $perbaikan->id) }}"
                                         class="btn btn-sm btn-warning">
                                         Edit Laporan Perbaikan

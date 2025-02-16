@@ -6,7 +6,7 @@
 
         <table class="table table-bordered">
             <thead class="table-dark">
-                <tr>
+                <tr class="text-center">
                     <th>No</th>
                     <th>Nomor Surat</th>
                     <th>Tanggal Tugas</th>
@@ -25,7 +25,7 @@
                         <td>{{ $surat->petugas->name }}</td>
                         <td>{{ $surat->aduan->alamat }}</td>
 
-                        <td>
+                        <td class="text-center">
                             <a href="{{ route('admin.surat_tugas.lihat', $surat->id) }}" class="btn btn-sm btn-danger"
                                 target="_blank">
                                 Cettak PDF

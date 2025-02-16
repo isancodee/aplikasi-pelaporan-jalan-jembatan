@@ -1,8 +1,8 @@
 @extends('layouts.operator.admin')
 
 @section('content')
-    <div class="container mt-4">
-        <h2 class="text-center mb-4">Daftar Surat Tugas</h2>
+    <div class="container mt-4 card">
+        <h2 class="text-center mt-4 mb-4">Daftar Surat Tugas</h2>
 
         <table class="table table-bordered">
             <thead class="table-dark">
@@ -24,10 +24,10 @@
                         <td>{{ $surat->tanggal_tugas }}</td>
                         <td>{{ $surat->petugas->name }}</td>
                         <td>{{ $surat->aduan->alamat }}</td>
-                        <td>
+                        <td class="text-center">
                             <span class="badge bg-primary text-white">{{ $surat->aduan->status }}</span>
                         </td>
-                        <td>
+                        <td class="text-center">
                             <a href="{{ route('admin.surat_tugas.lihat', $surat->id) }}" class="btn btn-sm btn-danger"
                                 target="_blank">
                                 Cettak PDF
@@ -38,7 +38,8 @@
                                 onsubmit="return confirm('Apakah Anda yakin ingin menghapus surat tugas ini?');">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-warning">Hapus</button>
+                                <button type="submit" class="btn btn-sm btn-warning"><i
+                                        class="fas fa-trash-alt"></i></button>
                             </form>
                         </td>
 

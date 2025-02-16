@@ -1,7 +1,7 @@
 @extends('layouts.operator.admin')
 
 @section('content')
-    <div class="container">
+    <div class="container card">
         <h2 class="text-center">Tugaskan Petugas</h2>
         <form action="{{ route('admin.aduan.tugaskan.store', $aduan->id) }}" method="POST">
             @csrf

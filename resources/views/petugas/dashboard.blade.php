@@ -11,7 +11,7 @@
             @endif
             <table class="table table-bordered">
                 <thead class="table-dark">
-                    <tr>
+                    <tr class="text-center">
                         <th>No</th>
                         <th>Nama Pelapor</th>
                         <th>Alamat</th>
@@ -27,7 +27,7 @@
                             <td>{{ $aduan->nama }}</td>
                             <td>{{ $aduan->alamat }}</td>
                             <td>{{ $aduan->jenis_aduan }}</td>
-                            <td>
+                            <td class="text-center">
                                 <span
                                     class="badge 
                                 @if ($aduan->status == 'diproses') bg-warning
@@ -37,7 +37,7 @@
                                 </span>
                             </td>
 
-                            <td>
+                            <td class="text-center">
                                 @if ($aduan->survei)
                                     {{-- <span class="badge bg-success">Hasil Survei Sudah Dikirim</span> --}}
                                     @if ($aduan->status == 'disetujui' && !$aduan->perbaikan)

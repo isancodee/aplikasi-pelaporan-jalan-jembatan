@@ -1,8 +1,8 @@
 @extends('layouts.operator.admin')
 
 @section('content')
-    <div class="container mt-4">
-        <h2 class="text-center">Laporan Perbaikan Jalan</h2>
+    <div class="container mt-2 card">
+        <h2 class="text-center mt-4">Laporan Perbaikan Jalan</h2>
 
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
@@ -39,7 +39,7 @@
                                         <img src="{{ asset('storage/' . $perbaikan->foto_perbaikan) }}" width="100">
                                     </td>
                                     <td>{{ $perbaikan->created_at->format('d M Y') }}</td>
-                                    <td>
+                                    <td class="text-center">
                                         @if ($perbaikan->aduan->status !== 'Selesai')
                                             <!-- Tombol untuk menandai aduan selesai -->
                                             <form action="{{ route('admin.aduan.selesai', $perbaikan->aduan->id) }}"
